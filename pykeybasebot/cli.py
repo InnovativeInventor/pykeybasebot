@@ -68,7 +68,7 @@ async def kbsubmit(
     if timeout_ms is None:
         timeout_ms = DEFAULT_TIMEOUT_MS
     stdout, stderr = await asyncio.wait_for(
-        process.communicate(input_data), timeout_ms / 1000.0, loop=kwargs.get("loop")
+        process.communicate(input_data), timeout_ms, loop=kwargs.get("loop")
     )
 
     if process.returncode != 0:
